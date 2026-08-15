@@ -3,18 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>5 Star Tap — Google Review Tap Placards Installed for $40 | Sacramento &amp; Bay Area</title>
-<meta name="description" content="A tap-to-review placard on your counter, programmed with your Google review link and installed in person across Sacramento and the Bay Area. $40. No app, no monthly fee.">
+<title>5 Star Tap — Google Review Tap Placards | Installed Local or Shipped Anywhere</title>
+<meta name="description" content="A tap-to-review placard for your counter, programmed with your Google review link. Installed in person around Sacramento and the Bay Area, or shipped anywhere in the US. From $40, no monthly fee.">
 <link rel="canonical" href="https://5startap.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="5 Star Tap">
 <meta property="og:title" content="One tap. More Google reviews. — $40 installed">
 <meta property="og:description" content="A tap-to-review placard for your counter, programmed with your Google review link and installed in person across Sacramento and the Bay Area. No app, no monthly fee.">
-<meta property="og:image" content="https://5startap.com/img/og-tap-cards.jpg">
+<meta property="og:image" content="https://5startap.com/img/og-5startap.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://5startap.com/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#040914">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
+<link rel="icon" type="image/png" href="img/logo-mark.png">
+<link rel="apple-touch-icon" href="img/logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -52,6 +55,11 @@ header{display:flex;align-items:center;justify-content:space-between;padding:18p
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
 .brand svg{filter:drop-shadow(0 0 6px rgba(70,240,255,.6));flex-shrink:0}
 .brand b{font-family:'Orbitron','Rajdhani',system-ui,sans-serif;font-size:.78rem;letter-spacing:.3em;font-weight:700}
+/* the lockup is wide (2.45:1) — under ~46px the wordmark stops being legible */
+.brand .logo{height:58px;width:auto;display:block}
+.logo-sign{display:flex;justify-content:center;padding:2vh 0 0}
+.logo-sign img{height:96px;width:auto;opacity:.95}
+@media (max-width:560px){.brand .logo{height:38px}.logo-sign img{height:66px}}
 .back{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;color:var(--dim);
   text-decoration:none;border:1px solid var(--line);padding:8px 14px;border-radius:8px;
   transition:.25s;background:rgba(8,14,30,.4);text-transform:uppercase;white-space:nowrap}
@@ -182,6 +190,28 @@ h2{font-family:'Orbitron','Rajdhani',system-ui,sans-serif;font-weight:700;
 .locked{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;color:var(--dim);
   border:1px dashed rgba(120,200,255,.28);border-radius:8px;padding:9px 12px;text-transform:uppercase}
 
+/* base choice + delivery choice */
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.opt{position:relative;border:1px solid var(--line);border-radius:13px;padding:16px 15px;
+  cursor:pointer;background:rgba(4,9,20,.5);transition:.2s}
+.opt:hover{border-color:rgba(70,240,255,.45)}
+.opt.on{border-color:rgba(251,188,5,.75);background:rgba(251,188,5,.07)}
+.opt:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.opt b{display:block;font-family:'Orbitron',sans-serif;font-size:.8rem;letter-spacing:.05em;
+  color:#fff;margin-bottom:6px}
+.opt .p{font-family:'Orbitron',sans-serif;font-size:1.5rem;font-weight:900;color:var(--g-yellow);line-height:1}
+.opt em{display:block;font-style:normal;font-size:.88rem;color:var(--dim);margin-top:8px;line-height:1.45}
+.opt .flag{position:absolute;top:-9px;right:12px;font-family:var(--mono);font-size:.52rem;
+  letter-spacing:.16em;text-transform:uppercase;background:linear-gradient(120deg,#FBBC05,#f59e0b);
+  color:#241a00;padding:3px 9px;border-radius:999px;font-weight:700}
+.deliv{display:flex;gap:9px;margin-bottom:4px}
+.deliv button{flex:1;border:1px solid var(--line);border-radius:11px;padding:12px 10px;
+  background:rgba(4,9,20,.5);color:var(--dim);font-family:inherit;font-size:.93rem;
+  font-weight:600;cursor:pointer;transition:.2s}
+.deliv button.on{border-color:rgba(70,240,255,.6);color:var(--cyan);background:rgba(70,240,255,.1)}
+.deliv button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+@media (max-width:560px){.opts{grid-template-columns:1fr}}
+
 .summary{position:sticky;top:18px}
 .sumline{display:flex;justify-content:space-between;gap:12px;font-size:.95rem;padding:7px 0;color:#c2d4f0}
 .sumline.dim{color:var(--dim);font-size:.88rem}
@@ -298,14 +328,8 @@ footer a:hover{color:var(--cyan)}
 
 <div class="shell">
   <header>
-    <a class="brand" href="/">
-      <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <path d="M12.4 3.6l2.66 5.4 5.95.86-4.3 4.2 1.01 5.93-5.32-2.8-5.32 2.8 1.02-5.93-4.31-4.2 5.96-.86 2.65-5.4Z"
-              fill="#FBBC05"/>
-        <path d="M21.6 20.4a6.6 6.6 0 0 0 0-9.3M25.4 24.1a11.8 11.8 0 0 0 0-16.7"
-              stroke="#46f0ff" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-      <b>5&nbsp;STAR&nbsp;TAP</b>
+    <a class="brand" href="/" aria-label="5 Star Tap — home">
+      <img class="logo" src="img/logo-light.png" width="620" height="253" alt="5 Star Tap">
     </a>
     <a class="back" href="https://spindolasoftware.com">by <span class="lg">Spindola&nbsp;Software</span><span class="sm">Spindola</span> ▸</a>
   </header>
@@ -313,14 +337,15 @@ footer a:hover{color:var(--cyan)}
   <!-- ============ HERO ============ -->
   <section class="hero">
     <div>
-      <div class="eyebrow">Sacramento &amp; the Bay Area · Done-for-you</div>
+      <div class="eyebrow">Installed locally · Shipped nationwide</div>
       <h1>ONE TAP.<br>MORE GOOGLE<br>REVIEWS.</h1>
-      <p class="tagline">A tap-to-review placard on your counter — programmed and installed for you. <b>$40</b></p>
+      <p class="tagline">A tap-to-review placard for your counter — programmed, then shipped
+        free or installed by me. <b>$40</b></p>
       <p class="sub">Your customer holds their phone near the sign. Your Google review page
-        opens on their screen. No app to download, no QR code to line up, no typing,
-        no "what's your business called again?"</p>
+        opens on their screen. No app to download, no typing, no "what's your business
+        called again?"</p>
       <div class="hero-cta">
-        <a class="btn go" href="#order">Book my install — $40 ▸</a>
+        <a class="btn go" href="#order">Order mine — $40 ▸</a>
         <a class="btn ghost" href="#how">See how it works</a>
       </div>
     </div>
@@ -333,7 +358,7 @@ footer a:hover{color:var(--cyan)}
 
   <div class="trust">
     <div class="tchip"><span class="ic">✓</span><span>Programmed with <em>your</em> review link</span></div>
-    <div class="tchip"><span class="ic">✓</span><span>Installed in person — Sacramento &amp; the Bay Area</span></div>
+    <div class="tchip"><span class="ic">✓</span><span>Installed in person, or shipped to your door</span></div>
     <div class="tchip"><span class="ic">✓</span><span>Works with iPhone &amp; Android</span></div>
     <div class="tchip"><span class="ic">✓</span><span>One-time price. No monthly fee.</span></div>
   </div>
@@ -381,8 +406,8 @@ footer a:hover{color:var(--cyan)}
     <div class="steps">
       <div class="step">
         <h3>YOU ORDER</h3>
-        <p>Pay online below, or tell me to bill you at the install. Checkout asks for your
-          address and your review link — that's everything I need.</p>
+        <p>Pay online below and pick install or shipping. Checkout asks for your address and
+          your review link — that's everything I need.</p>
       </div>
       <div class="step">
         <h3>I PROGRAM IT</h3>
@@ -390,9 +415,10 @@ footer a:hover{color:var(--cyan)}
           and I program your direct review link onto the chip.</p>
       </div>
       <div class="step">
-        <h3>I INSTALL IT</h3>
-        <p>I come to your counter, front desk, or checkout and set it up where your customers
-          actually stand. Takes about ten minutes.</p>
+        <h3>I DELIVER IT</h3>
+        <p>Around Sacramento and the Bay Area I come to you and set it up on your counter
+          myself. Anywhere else in the country, it ships to your door ready to use — nothing
+          to set up, just stand it up.</p>
       </div>
       <div class="step">
         <h3>THEY TAP</h3>
@@ -417,8 +443,8 @@ footer a:hover{color:var(--cyan)}
           <span class="size">4.75" × 4.75" acrylic</span>
           <h3>THE COUNTER PLACARD</h3>
           <p>A solid acrylic sign that sits on your counter and asks every customer for a
-            review, all day, forever. Programming and in-person install included.</p>
-          <div class="price">$40 <small>first placard, installed</small></div>
+            review, all day, forever. Programmed to your review link before it reaches you.</p>
+          <div class="price">$40 <small>shipped free, or installed by me locally</small></div>
           <div class="price2"><b>$20</b> each additional — a second register, a second
             location, the back office.</div>
         </div>
@@ -450,19 +476,31 @@ footer a:hover{color:var(--cyan)}
     <div class="sec-head"><h2>// BUILD YOUR ORDER</h2><div class="rule"></div></div>
     <div class="order">
       <div class="panel">
+        <div class="opts" role="radiogroup" aria-label="What you're buying">
+          <div class="opt on" id="opt-single" role="radio" aria-checked="true" tabindex="0">
+            <b>THE PLACARD</b>
+            <div class="p">$40</div>
+            <em>One 4.75" acrylic counter placard, programmed to your review link.</em>
+          </div>
+          <div class="opt" id="opt-bundle" role="radio" aria-checked="false" tabindex="0">
+            <div class="flag">Best value</div>
+            <b>ONLINE SPECIAL</b>
+            <div class="p">$50</div>
+            <em>The placard, one wallet tap card, and a stand for the card. Saves you $10.</em>
+          </div>
+        </div>
+
+        <div class="deliv" role="radiogroup" aria-label="How you want it delivered">
+          <button type="button" id="dl-ship" class="on" role="radio" aria-checked="true">📦&nbsp; Ship it to me</button>
+          <button type="button" id="dl-install" role="radio" aria-checked="false">🚗&nbsp; Install it for me</button>
+        </div>
+        <p class="note" id="deliv-note"></p>
+
         <div class="rows">
           <div class="row">
             <div class="info">
-              <b>Google review placard — programmed &amp; installed</b>
-              <span>4.75" acrylic. Includes the visit, the programming, and the setup.</span>
-            </div>
-            <div class="unit">$40</div>
-            <div class="locked">Qty 1</div>
-          </div>
-          <div class="row">
-            <div class="info">
               <b>Additional placard</b>
-              <span>Same visit, same review link. For a second register or a second location.</span>
+              <span>A second register, a second location, the back office.</span>
             </div>
             <div class="unit">$20 ea</div>
             <div class="stepper">
@@ -474,7 +512,7 @@ footer a:hover{color:var(--cyan)}
           <div class="row">
             <div class="info">
               <b>Wallet tap card</b>
-              <span>Credit-card size, same review link. Truck, wallet, apron, front desk.</span>
+              <span>Credit-card size, tap or scan, same review link. Truck, wallet, apron.</span>
             </div>
             <div class="unit">$20 ea</div>
             <div class="stepper">
@@ -508,9 +546,10 @@ footer a:hover{color:var(--cyan)}
         <p class="alt">Rather talk first, or pay me in person?<br>
           <a href="#" id="email-order">Email me this order instead ▸</a></p>
         <p class="note" id="area-note">
-          I install in person across <b>Sacramento and the Bay Area</b>. Send your address
-          when you book — if you're outside what I can reasonably drive, you get a full
-          refund the same day, no argument.
+          Shipping is free anywhere in the US — the price is the same either way. In-person
+          install covers <b>Sacramento and the Bay Area</b>; if you pick install and you're
+          further out than I can reasonably drive, I'll either ship it instead or refund you
+          in full the same day, your call.
         </p>
       </div>
     </div>
@@ -629,10 +668,23 @@ footer a:hover{color:var(--cyan)}
       </details>
       <details>
         <summary>Where do you install, and how soon?</summary>
-        <p>I cover <b>Sacramento and the Bay Area</b>, in person. Send me your address when you
+        <p>I cover <b>Sacramento and the Bay Area</b> in person. Send me your address when you
           order and I'll confirm the visit — usually within a few days. If you're further out
-          than I can reasonably drive, I'll refund you in full the same day rather than leave
-          you waiting on me.</p>
+          than I can reasonably drive, I'll ship it to you instead, or refund you in full the
+          same day. Your call, and either way you're not left waiting on me.</p>
+      </details>
+      <details>
+        <summary>I'm not near you. Can you still do this?</summary>
+        <p>Yes — I ship anywhere in the US, free, and the price is exactly the same as if I
+          drove it over. You send your Google "Ask for reviews" link at checkout, I program
+          the chip to it, and it arrives ready to use. There's nothing to set up on your end;
+          stand it on the counter and it works.</p>
+      </details>
+      <details>
+        <summary>What's the $50 online special?</summary>
+        <p>The counter placard, one wallet-size tap card, and a stand for the card — $50 for
+          all three instead of $60. It's the setup most shops end up wanting anyway: the sign
+          lives on the counter and the card rides with you.</p>
       </details>
       <details>
         <summary>Is buying reviews part of this?</summary>
@@ -646,13 +698,17 @@ footer a:hover{color:var(--cyan)}
   <!-- ============ FINAL ============ -->
   <section class="final" id="talk">
     <h2>Let's get your counter working for you.</h2>
-    <p>Forty dollars, ten minutes of your time, and every happy customer who walks
+    <p>Forty dollars, a few minutes of your time, and every happy customer who walks
       out gets a five-second way to say so.</p>
     <div class="hero-cta" style="justify-content:center">
-      <a class="btn go" href="#order">Book my install — $40 ▸</a>
+      <a class="btn go" href="#order">Order mine — $40 ▸</a>
       <a class="btn ghost" href="mailto:Spindola.Software@gmail.com?subject=Google%20review%20placard%20—%20question">Email me a question</a>
     </div>
   </section>
+
+  <div class="logo-sign">
+    <img src="img/logo-light.png" width="620" height="253" loading="lazy" alt="">
+  </div>
 
   <footer>
     <span>© 2026 5 STAR TAP · A <a href="https://spindolasoftware.com">SPINDOLA SOFTWARE</a> SERVICE</span>
@@ -675,24 +731,30 @@ footer a:hover{color:var(--cyan)}
    so the page is never broken and never dead-ends a customer.
 ------------------------------------------------------------------- */
 var STRIPE_LINKS = {
-  install: 'https://buy.stripe.com/bJefZhb4s7QL5mi1Cm67S01',
+  single: 'https://buy.stripe.com/bJefZhb4s7QL5mi1Cm67S01',  // $40 placard
+  bundle: 'https://buy.stripe.com/bJeaEX6Oc6MHbKGch067S02',  // $50 online special
   website: ''    // optional: the $250 website build
 };
 
 var CONTACT_EMAIL = 'Spindola.Software@gmail.com';
 
-var PRICES = { placard: 40, extra: 20, wallet: 20 };
+var PRICES = { single: 40, bundle: 50, extra: 20, wallet: 20 };
 var MAX_QTY = 20;
 
 var qty = { extra: 0, wallet: 0 };
+var base = 'single';      // 'single' | 'bundle'
+var delivery = 'ship';    // 'ship'   | 'install'
 
 var $ = function (id) { return document.getElementById(id); };
 var money = function (n) { return '$' + n.toLocaleString('en-US'); };
 
+function activeLink() { return STRIPE_LINKS[base]; }
+
 function render() {
-  var lines = [
-    { label: 'Placard — programmed &amp; installed', n: 1, each: PRICES.placard }
-  ];
+  var lines = base === 'bundle'
+    ? [{ label: 'Online special — placard, wallet card &amp; stand', n: 1, each: PRICES.bundle }]
+    : [{ label: 'Google review placard', n: 1, each: PRICES.single }];
+
   if (qty.extra)  lines.push({ label: 'Additional placard', n: qty.extra,  each: PRICES.extra });
   if (qty.wallet) lines.push({ label: 'Wallet tap card',    n: qty.wallet, each: PRICES.wallet });
 
@@ -704,12 +766,27 @@ function render() {
             (l.n > 1 ? ' <span class="muted">× ' + l.n + '</span>' : '') +
             '</span><span>' + money(sub) + '</span></div>';
   });
-  html += '<div class="sumline dim"><span>In-person install &amp; programming</span><span>Included</span></div>';
+  html += '<div class="sumline dim"><span>Programming' +
+          (delivery === 'ship' ? ' &amp; shipping' : ' &amp; in-person install') +
+          '</span><span>Included</span></div>';
 
   $('sum-lines').innerHTML = html;
   $('sum-total').textContent = money(total);
   $('q-extra').textContent  = qty.extra;
   $('q-wallet').textContent = qty.wallet;
+
+  // reflect the base + delivery choices
+  $('opt-single').classList.toggle('on', base === 'single');
+  $('opt-bundle').classList.toggle('on', base === 'bundle');
+  $('opt-single').setAttribute('aria-checked', String(base === 'single'));
+  $('opt-bundle').setAttribute('aria-checked', String(base === 'bundle'));
+  $('dl-ship').classList.toggle('on', delivery === 'ship');
+  $('dl-install').classList.toggle('on', delivery === 'install');
+  $('dl-ship').setAttribute('aria-checked', String(delivery === 'ship'));
+  $('dl-install').setAttribute('aria-checked', String(delivery === 'install'));
+  $('deliv-note').textContent = delivery === 'ship'
+    ? 'Free shipping anywhere in the US. It arrives programmed and ready — stand it up and you’re done.'
+    : 'I come to you around Sacramento and the Bay Area and set it up on your counter. About ten minutes.';
 
   document.querySelectorAll('.stepper button').forEach(function (b) {
     var k = b.dataset.step, d = +b.dataset.d;
@@ -717,11 +794,22 @@ function render() {
   });
 
   var btn = $('pay-btn');
-  btn.textContent = STRIPE_LINKS.install
+  btn.textContent = activeLink()
     ? 'Pay ' + money(total) + ' securely by card ▸'
     : 'Send my order — ' + money(total) + ' ▸';
   btn.dataset.total = total;
 }
+
+['single', 'bundle'].forEach(function (b) {
+  var el = $('opt-' + b);
+  var pick = function () { base = b; render(); };
+  el.addEventListener('click', pick);
+  el.addEventListener('keydown', function (e) {
+    if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); pick(); }
+  });
+});
+$('dl-ship').addEventListener('click', function () { delivery = 'ship'; render(); });
+$('dl-install').addEventListener('click', function () { delivery = 'install'; render(); });
 
 document.querySelectorAll('.stepper button').forEach(function (b) {
   b.addEventListener('click', function () {
@@ -735,17 +823,25 @@ document.querySelectorAll('.stepper button').forEach(function (b) {
    and underscores in client_reference_id, so Rafael can read the intended
    order straight off the payment in his dashboard and spot any mismatch. */
 function orderCode() {
-  return 'P1-X' + qty.extra + '-W' + qty.wallet;
+  return (delivery === 'ship' ? 'SHIP' : 'INST') +
+         (base === 'bundle' ? '-BUNDLE' : '-PLACARD') +
+         '-X' + qty.extra + '-W' + qty.wallet;
 }
 
 function orderText() {
-  var t = ['GOOGLE REVIEW TAP — ORDER', '',
-           '1 x Google review placard, programmed & installed — $' + PRICES.placard];
+  var t = ['5 STAR TAP — ORDER', '',
+           delivery === 'ship' ? 'SHIP IT TO ME' : 'INSTALL IT FOR ME (Sacramento / Bay Area)', ''];
+  t.push(base === 'bundle'
+    ? '1 x Online special: placard + wallet tap card + stand — $' + PRICES.bundle
+    : '1 x Google review placard — $' + PRICES.single);
   if (qty.extra)  t.push(qty.extra  + ' x Additional placard — $' + (qty.extra  * PRICES.extra));
   if (qty.wallet) t.push(qty.wallet + ' x Wallet tap card — $'    + (qty.wallet * PRICES.wallet));
   t.push('', 'TOTAL: $' + $('pay-btn').dataset.total, '',
-         'Business name:', 'Install address:', 'Best phone:',
-         'Best days/times for the install:', '',
+         'Business name:',
+         'Your Google "Ask for reviews" link:',
+         delivery === 'ship' ? 'Shipping address:' : 'Install address:',
+         'Best phone:',
+         delivery === 'ship' ? '' : 'Best days/times for the install:', '',
          'Reference: ' + orderCode());
   return t.join('\n');
 }
@@ -758,7 +854,7 @@ function mailtoOrder() {
 
 $('pay-btn').addEventListener('click', function (e) {
   e.preventDefault();
-  var url = STRIPE_LINKS.install;
+  var url = activeLink();
   if (!url) { window.location.href = mailtoOrder(); return; }
 
   var sep = url.indexOf('?') === -1 ? '?' : '&';
