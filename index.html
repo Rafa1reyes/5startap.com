@@ -60,7 +60,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:18p
 .brand .logo{height:58px;width:auto;display:block}
 .logo-sign{display:flex;justify-content:center;padding:2vh 0 0}
 .logo-sign img{height:96px;width:auto;opacity:.95}
-@media (max-width:560px){.brand .logo{height:38px}.logo-sign img{height:66px}}
+@media (max-width:560px){.brand .logo{height:46px}.logo-sign img{height:74px}}
 .back{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;color:var(--dim);
   text-decoration:none;border:1px solid var(--line);padding:8px 14px;border-radius:8px;
   transition:.25s;background:rgba(8,14,30,.4);text-transform:uppercase;white-space:nowrap}
@@ -306,9 +306,13 @@ footer a:hover{color:var(--cyan)}
 @media (max-width:560px){
   body{font-size:16px}
   .brand b{font-size:.6rem;letter-spacing:.12em}
-  .back{font-size:.58rem;padding:7px 10px;letter-spacing:.08em}
-  .back .lg{display:none}
-  .back .sm{display:inline}
+  /* Full "by Spindola Software" stays on phones — the abbreviation looked like
+     the text had been cut off. Logo 46px + full label ~157px + gap fits inside
+     the 331px content width at 375px, so there's no need to shorten it. */
+  .back{font-size:.58rem;padding:7px 10px;letter-spacing:.06em}
+  /* 38px is under the 44px touch-target minimum — fiddly with a thumb */
+  .stepper button{width:44px;height:44px;font-size:1.3rem}
+  .stepper .qty{min-width:44px;font-size:1.05rem}
   .sec{padding:5vh 0}
   .row{flex-wrap:wrap;gap:10px}
   .row .info{flex-basis:100%}
@@ -332,7 +336,7 @@ footer a:hover{color:var(--cyan)}
     <a class="brand" href="/" aria-label="5 Star Tap — home">
       <img class="logo" src="img/logo-light.png" width="620" height="253" alt="5 Star Tap">
     </a>
-    <a class="back" href="https://spindolasoftware.com">by <span class="lg">Spindola&nbsp;Software</span><span class="sm">Spindola</span> ▸</a>
+    <a class="back" href="https://spindolasoftware.com">by Spindola&nbsp;Software ▸</a>
   </header>
 
   <!-- ============ HERO ============ -->
