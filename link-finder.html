@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Review Link Finder</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#16233c">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text y='19' font-size='20'>⭐</text></svg>">
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#fff; --ink:#16233c; --muted:#5b6b85; --line:#dde4ee;
+    --blue:#1a73e8; --blueink:#0f5ac4; --amber:#f5a800;
+    --good:#0f7b3d; --goodbg:#e8f6ed; --bad:#c0392b; --badbg:#fdecea;
+    --radius:14px;
+    --shadow:0 1px 2px rgba(22,35,60,.07), 0 6px 18px rgba(22,35,60,.06);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding:0 0 env(safe-area-inset-bottom);
+  }
+  .wrap{max-width:620px;margin:0 auto;padding:0 16px 48px}
+
+  header{background:var(--ink);color:#fff;padding:calc(18px + env(safe-area-inset-top)) 0 18px;margin-bottom:18px}
+  header .wrap{padding-bottom:0}
+  .brand{display:flex;align-items:center;gap:9px}
+  .brand .stars{display:flex;gap:2px}
+  .brand .stars svg{width:13px;height:13px;fill:var(--amber)}
+  .brand b{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+  h1{margin:10px 0 4px;font-size:23px;line-height:1.2;letter-spacing:-.02em;font-weight:650}
+  .tag{margin:0;color:#a9b7cd;font-size:14px}
+
+  .search{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+          padding:16px;box-shadow:var(--shadow);margin-bottom:16px}
+  label{display:block;font-size:13px;font-weight:650;color:var(--muted);margin-bottom:6px}
+  #q{width:100%;padding:14px 14px;border:1.5px solid var(--line);border-radius:11px;
+     font-size:17px;font-family:inherit;color:var(--ink);background:#fbfcfe}
+  #q:focus{outline:0;border-color:var(--blue);background:#fff}
+  .hint{font-size:12.5px;color:var(--muted);margin:8px 0 0}
+  .go{width:100%;margin-top:12px;padding:15px;border:0;border-radius:11px;background:var(--blue);
+      color:#fff;font-size:17px;font-weight:650;font-family:inherit;cursor:pointer}
+  .go:active{background:var(--blueink)}
+  .go[disabled]{opacity:.55}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+        padding:18px;box-shadow:var(--shadow);margin-bottom:16px}
+  .biz{font-size:19px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+  .addr{color:var(--muted);font-size:14.5px;margin-top:3px}
+  .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}
+  .chip{font-size:13px;font-weight:600;background:#eef3fb;color:var(--blueink);
+        border-radius:20px;padding:4px 11px}
+  .chip.rev{background:var(--goodbg);color:var(--good)}
+
+  .linkbox{margin-top:15px;padding:12px;border:1px dashed var(--line);border-radius:10px;
+           background:#fbfcfe;font-size:12.5px;word-break:break-all;color:var(--muted);
+           font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+
+  .acts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}
+  .btn{padding:14px 10px;border:1.5px solid var(--line);border-radius:11px;background:#fff;
+       font-size:15px;font-weight:650;font-family:inherit;color:var(--ink);cursor:pointer;
+       text-align:center;text-decoration:none;display:block}
+  .btn:active{background:var(--bg)}
+  .btn.wide{grid-column:1 / -1}
+  .btn.pri{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .btn.ok{background:var(--goodbg);border-color:#9ed4b4;color:var(--good)}
+
+  .msg{border-radius:var(--radius);padding:15px 16px;margin-bottom:16px;font-size:14.5px}
+  .msg.bad{background:var(--badbg);border:1px solid #f2b8b1;color:var(--bad)}
+  .msg.bad b{display:block;margin-bottom:4px}
+  .msg ul{margin:7px 0 0;padding-left:19px}
+  .msg li{margin-bottom:3px}
+
+  .spin{display:inline-block;width:15px;height:15px;border:2px solid rgba(255,255,255,.4);
+        border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite;vertical-align:-2px;margin-right:7px}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion: reduce){.spin{animation:none}}
+
+  h2.sec{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+         color:var(--muted);margin:22px 0 9px}
+  .recent{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+          box-shadow:var(--shadow);overflow:hidden}
+  .rec{display:flex;justify-content:space-between;align-items:center;gap:10px;
+       padding:13px 15px;border-bottom:1px solid var(--line);cursor:pointer}
+  .rec:last-child{border-bottom:0}
+  .rec:active{background:var(--bg)}
+  .rec .n{font-weight:650;font-size:15px;line-height:1.25}
+  .rec .a{color:var(--muted);font-size:12.5px;margin-top:1px}
+  .rec .x{border:0;background:transparent;color:var(--muted);font-size:19px;padding:2px 5px;cursor:pointer}
+  .empty{padding:20px 15px;color:var(--muted);font-size:14px;text-align:center}
+
+  .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:24px;background:var(--ink);
+         color:#fff;padding:12px 20px;border-radius:11px;font-size:14.5px;font-weight:600;
+         opacity:0;pointer-events:none;transition:opacity .2s;z-index:80;
+         box-shadow:0 6px 22px rgba(22,35,60,.28)}
+  .toast.on{opacity:1}
+  .foot{margin-top:26px;font-size:12.5px;color:var(--muted);text-align:center;line-height:1.6}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <span class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.332 1.21-6.001 5.848 1.416 8.297L12 19.446l-7.415 3.927 1.416-8.297-6.001-5.848 8.332-1.21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.332 1.21-6.001 5.848 1.416 8.297L12 19.446l-7.415 3.927 1.416-8.297-6.001-5.848 8.332-1.21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.332 1.21-6.001 5.848 1.416 8.297L12 19.446l-7.415 3.927 1.416-8.297-6.001-5.848 8.332-1.21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.332 1.21-6.001 5.848 1.416 8.297L12 19.446l-7.415 3.927 1.416-8.297-6.001-5.848 8.332-1.21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 .587l3.668 7.431 8.332 1.21-6.001 5.848 1.416 8.297L12 19.446l-7.415 3.927 1.416-8.297-6.001-5.848 8.332-1.21z"/></svg>
+      </span>
+      <b>5 Star Tap</b>
+    </div>
+    <h1>Review Link Finder</h1>
+    <p class="tag">Type a business, get their Google review link. They never have to log in.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="search">
+    <label for="q">Business name and address</label>
+    <input id="q" type="search" enterkeyhint="search" autocomplete="off"
+           autocapitalize="words" placeholder="Joe&rsquo;s Barbershop, 1420 J St Sacramento">
+    <p class="hint">Include the street address when you can &mdash; a name and city alone
+      is often too vague if they have more than one location.</p>
+    <button class="go" id="go">Find review link</button>
+  </div>
+
+  <div id="out"></div>
+
+  <h2 class="sec">Recent lookups</h2>
+  <div class="recent" id="recent"></div>
+
+  <p class="foot">Uses the business&rsquo;s public Google listing. Nothing is stored anywhere
+    but this phone.<br>5 Star Tap &middot; internal tool</p>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const KEY = 'fivestar_link_finder_v1';
+const REVIEW = id => 'https://search.google.com/local/writereview?placeid=' + id;
+const LISTING = id => 'https://www.google.com/maps/place/?q=place_id:' + id;
+
+let recent = [];
+try { recent = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e){ recent = []; }
+if(!Array.isArray(recent)) recent = [];
+
+const $ = s => document.querySelector(s);
+function esc(s){
+  return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+function toast(m){
+  const t = $('#toast'); t.textContent = m; t.classList.add('on');
+  clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('on'), 2100);
+}
+
+/* feature id (0xHI:0xLO) -> ChIJ place id, for the rare response with no ChIJ in it */
+function featureToPlaceId(feat){
+  const p = feat.split(':');
+  const hi = BigInt(p[0]), lo = BigInt(p[1]);
+  const bytes = [0x0A, 0x12, 0x09];
+  const push = v => { for(let i = 0; i < 8; i++){ bytes.push(Number((v >> BigInt(8*i)) & 0xFFn)); } };
+  push(hi); bytes.push(0x11); push(lo);
+  let bin = '';
+  bytes.forEach(b => { bin += String.fromCharCode(b); });
+  return btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+}
+
+function parse(html){
+  const m = html.match(/"(0x[0-9a-f]+:0x[0-9a-f]+)","([^"]+)"/);
+  if(!m) return null;
+  const chij = html.match(/ChIJ[A-Za-z0-9_\-]{23}/);
+  const placeId = chij ? chij[0] : featureToPlaceId(m[1]);
+
+  /* "Name, 123 Main St, City, ST 12345" -> split the name off the street number */
+  const full = m[2];
+  let name = full, addr = '';
+  const cut = full.match(/^(.*?),\s*(\d+.*)$/);
+  if(cut){ name = cut[1]; addr = cut[2]; }
+
+  const rev = html.match(/([\d,]+)\s+reviews?/);
+  const cat = html.match(/gcid:([a-z_]+)/);
+  return {
+    placeId: placeId,
+    name: name,
+    address: addr,
+    reviews: rev ? rev[1] : '',
+    category: cat ? cat[1].replace(/_/g,' ') : ''
+  };
+}
+
+async function find(query){
+  const url = 'https://maps.google.com/maps?q=' + encodeURIComponent(query) + '&output=embed';
+  const res = await fetch(url, {credentials:'omit'});
+  if(!res.ok) throw new Error('http ' + res.status);
+  const data = parse(await res.text());
+  if(!data) throw new Error('notfound');
+  return data;
+}
+
+function renderResult(d){
+  const link = REVIEW(d.placeId);
+  const sms = 'sms:?&body=' + encodeURIComponent(
+    'Here is your Google review link for ' + d.name + ' - this is what we program into the card:\n' + link);
+  const mail = 'mailto:?subject=' + encodeURIComponent('Your Google review link - ' + d.name) +
+               '&body=' + encodeURIComponent('Here is the review link for ' + d.name + ':\n\n' + link +
+               '\n\nTapping it opens the review box on your Google listing.\n\n- 5 Star Tap');
+
+  $('#out').innerHTML =
+    '<div class="card">' +
+      '<div class="biz">' + esc(d.name) + '</div>' +
+      (d.address ? '<div class="addr">' + esc(d.address) + '</div>' : '') +
+      '<div class="meta">' +
+        (d.reviews ? '<span class="chip rev">' + esc(d.reviews) + ' reviews now</span>' : '') +
+        (d.category ? '<span class="chip">' + esc(d.category) + '</span>' : '') +
+      '</div>' +
+      '<div class="linkbox">' + esc(link) + '</div>' +
+      '<div class="acts">' +
+        '<button class="btn pri wide" id="cp">Copy review link</button>' +
+        '<a class="btn" href="' + esc(sms) + '">Text it</a>' +
+        '<a class="btn" href="' + esc(mail) + '">Email it</a>' +
+        '<a class="btn wide" href="' + esc(link) + '" target="_blank" rel="noopener">Test the link</a>' +
+        '<a class="btn wide" href="' + esc(LISTING(d.placeId)) + '" target="_blank" rel="noopener">' +
+          'Check it&rsquo;s the right business</a>' +
+      '</div>' +
+    '</div>';
+
+  $('#cp').addEventListener('click', function(){
+    const done = () => { toast('Link copied'); this.textContent = 'Copied'; this.classList.add('ok');
+      setTimeout(() => { this.textContent = 'Copy review link'; this.classList.remove('ok'); }, 1800); };
+    if(navigator.clipboard) navigator.clipboard.writeText(link).then(done, fallback);
+    else fallback();
+    function fallback(){
+      const ta = document.createElement('textarea'); ta.value = link;
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch(e){}
+      ta.remove(); done();
+    }
+  });
+
+  recent = recent.filter(r => r.placeId !== d.placeId);
+  recent.unshift({placeId:d.placeId, name:d.name, address:d.address, reviews:d.reviews});
+  recent = recent.slice(0, 25);
+  try { localStorage.setItem(KEY, JSON.stringify(recent)); } catch(e){}
+  renderRecent();
+}
+
+function renderNotFound(q){
+  $('#out').innerHTML =
+    '<div class="msg bad"><b>No single business matched that.</b>' +
+    'Google needs enough to land on exactly one listing. Try:' +
+    '<ul>' +
+      '<li>Add the street address, not just the city</li>' +
+      '<li>Use the name exactly as it shows on their sign or door</li>' +
+      '<li>Drop extras like &ldquo;LLC&rdquo;, &ldquo;Inc&rdquo; or &ldquo;&amp; Sons&rdquo;</li>' +
+      '<li>If they are inside a plaza, try the plaza name too</li>' +
+    '</ul></div>';
+}
+
+function renderRecent(){
+  const el = $('#recent');
+  if(!recent.length){
+    el.innerHTML = '<div class="empty">Businesses you look up will show up here.</div>';
+    return;
+  }
+  el.innerHTML = recent.map((r, i) =>
+    '<div class="rec" data-i="' + i + '">' +
+      '<div><div class="n">' + esc(r.name) + '</div>' +
+      '<div class="a">' + esc(r.address || '') + (r.reviews ? ' &middot; ' + esc(r.reviews) + ' reviews' : '') +
+      '</div></div>' +
+      '<button class="x" data-del="' + i + '" aria-label="Remove">&times;</button>' +
+    '</div>').join('');
+}
+
+$('#recent').addEventListener('click', e => {
+  const del = e.target.closest('[data-del]');
+  if(del){
+    recent.splice(Number(del.dataset.del), 1);
+    try { localStorage.setItem(KEY, JSON.stringify(recent)); } catch(err){}
+    renderRecent(); return;
+  }
+  const row = e.target.closest('.rec');
+  if(!row) return;
+  renderResult(recent[Number(row.dataset.i)]);
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+async function run(){
+  const q = $('#q').value.trim();
+  if(q.length < 3){ toast('Type the business name first'); return; }
+  const btn = $('#go');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spin"></span>Looking it up';
+  $('#out').innerHTML = '';
+  try {
+    renderResult(await find(q));
+  } catch(err){
+    if(err && err.message === 'notfound') renderNotFound(q);
+    else $('#out').innerHTML = '<div class="msg bad"><b>Could not reach Google.</b>' +
+      'Check your signal and try again.</div>';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Find review link';
+  }
+}
+
+$('#go').addEventListener('click', run);
+$('#q').addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); $('#q').blur(); run(); } });
+
+renderRecent();
+</script>
+</body>
+</html>
