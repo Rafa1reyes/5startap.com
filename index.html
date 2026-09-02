@@ -228,6 +228,10 @@ h2{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-weight:800;
 .alt{text-align:center;margin-top:14px;font-size:.9rem;color:var(--dim)}
 .alt a{color:var(--cyan);text-decoration:none;border-bottom:1px dotted #9fc1f2}
 .alt a:hover{color:#1765cc}
+.referral{margin:16px 0 2px;padding:12px 14px;border:1px dashed #cfd9e8;border-radius:10px;
+  background:#fbfcfe;font-size:.9rem;line-height:1.55;color:var(--ink)}
+.referral b{color:var(--cyan)}
+.referral small{display:block;margin-top:5px;font-size:.78rem;color:var(--dim)}
 
 /* ---------- offers ---------- */
 .offer{position:relative;overflow:hidden;border-radius:18px;padding:34px 30px;
@@ -534,6 +538,12 @@ footer a:hover{text-decoration:underline}
                  spellcheck="false">
         </div>
 
+        <div class="referral">
+          Did somebody send you my way? Checkout has an optional
+          <b>&ldquo;How did you hear about us?&rdquo;</b> box — put their name in it.
+          <small>This is how we pay our sales reps &amp; affiliates.</small>
+        </div>
+
         <a class="btn go wide" id="pay-btn" href="#" style="margin-top:14px">Pay securely by card ▸</a>
         <div class="secure">🔒 Card handled by Stripe · Spindola never sees your card</div>
         <p class="note" style="text-align:center;margin-top:8px">Checkout runs on Stripe. Your card
@@ -838,6 +848,7 @@ function orderText() {
          'Your Google "Ask for reviews" link:',
          delivery === 'ship' ? 'Shipping address:' : 'Install address:',
          'Best phone:',
+         'How did you hear about us? (this is how I pay my sales reps):',
          delivery === 'ship' ? '' : 'Best days/times for the install:', '',
          'Reference: ' + orderCode());
   return t.join('\n');
