@@ -278,6 +278,16 @@ h2{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-weight:800;
   margin:22px 0 4px;padding:0;list-style:none}
 .inc li{display:flex;gap:10px;align-items:flex-start;color:#2c3c58;font-size:.96rem}
 .inc li::before{content:'✓';color:var(--ok);font-weight:700;flex-shrink:0}
+.hero-web{margin:16px 0 0;font-size:.93rem;color:var(--dim);max-width:52ch}
+.hero-web b{color:var(--amber)}
+.hero-web a{color:var(--cyan);font-weight:700;text-decoration:none;border-bottom:1px dotted #9fc1f2}
+.hero-web a:hover{color:#1765cc}
+.work{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:12px;margin:22px 0 6px}
+.piece{display:block;text-decoration:none;color:var(--ink);background:#fff;border:1px solid #cfe0fb;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:.2s}
+.piece:hover{transform:translateY(-2px);border-color:#9fc1f2}
+.piece img{display:block;width:100%;height:auto;border-bottom:1px solid #e3e9f2}
+.piece span{display:block;padding:9px 11px;font-size:.78rem;font-weight:700;letter-spacing:.02em}
+.piece span em{display:block;font-style:normal;font-weight:500;color:var(--dim);font-size:.72rem;margin-top:2px}
 
 /* ---------- faq ---------- */
 .faq{display:grid;gap:11px}
@@ -327,6 +337,71 @@ footer a:hover{text-decoration:underline}
   html{scroll-behavior:auto}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://5startap.com/#business",
+      "name": "5 Star Tap",
+      "alternateName": "Spindola Software",
+      "url": "https://5startap.com/",
+      "email": "Spindola.Software@gmail.com",
+      "image": "https://5startap.com/img/og-5startap.jpg",
+      "logo": "https://5startap.com/img/logo.png",
+      "description": "Google review tap placards for local businesses: an NFC sign for your counter, programmed with your Google review link. Installed in person around Orangevale, Sacramento and the Bay Area, or shipped free anywhere in the US. One-time price, no monthly fee. Websites for local businesses too.",
+      "priceRange": "$40 - $950",
+      "areaServed": [
+        {"@type": "City", "name": "Orangevale"},
+        {"@type": "City", "name": "Fair Oaks"},
+        {"@type": "City", "name": "Citrus Heights"},
+        {"@type": "City", "name": "Folsom"},
+        {"@type": "City", "name": "Carmichael"},
+        {"@type": "City", "name": "Roseville"},
+        {"@type": "City", "name": "Sacramento"},
+        {"@type": "Country", "name": "United States"}
+      ],
+      "address": {"@type": "PostalAddress", "addressLocality": "Orangevale", "addressRegion": "CA", "addressCountry": "US"},
+      "makesOffer": [
+        {"@type": "Offer", "name": "Google review tap placard", "price": "40", "priceCurrency": "USD", "url": "https://5startap.com/#order"},
+        {"@type": "Offer", "name": "Online special: placard, wallet tap card and stand", "price": "50", "priceCurrency": "USD", "url": "https://5startap.com/#order"},
+        {"@type": "Offer", "name": "Local business website, built and put live", "price": "950", "priceCurrency": "USD", "url": "https://5startap.com/#website"}
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Google review tap placard",
+      "description": "4.75 inch acrylic counter placard with an NFC chip programmed to your Google review link. Customers tap their phone and your review page opens. No app, no power, no monthly fee.",
+      "image": "https://5startap.com/img/placard.jpg",
+      "brand": {"@type": "Brand", "name": "5 Star Tap"},
+      "offers": {
+        "@type": "Offer",
+        "price": "40",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://5startap.com/#order",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "USD"},
+          "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "US"}
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Does my customer need to download an app?", "acceptedAnswer": {"@type": "Answer", "text": "No. iPhones from the XR and XS (2018) onward read the tag with the screen on, and Android phones read it with NFC switched on, which it is by default on most phones. Nothing to install and nothing to sign into."}},
+        {"@type": "Question", "name": "Do you need my Google password?", "acceptedAnswer": {"@type": "Answer", "text": "Never. You copy the Ask for reviews link out of your own Google Business Profile and send it to me. It is the same link you would text a customer and it is the only thing I need."}},
+        {"@type": "Question", "name": "Does it need power, batteries or Wi-Fi?", "acceptedAnswer": {"@type": "Answer", "text": "None of the three. The chip is powered by the phone that taps it, so there is nothing to charge and nothing to connect."}},
+        {"@type": "Question", "name": "What if it stops working or my review link changes?", "acceptedAnswer": {"@type": "Answer", "text": "I re-program or replace it free. The chip can be re-written as many times as you like, so a new business name, address or link is a free re-write for anyone who has bought from me once."}},
+        {"@type": "Question", "name": "Where do you install, and how soon?", "acceptedAnswer": {"@type": "Answer", "text": "I am based in Orangevale and cover Sacramento and the Bay Area in person, usually within a few days. Anywhere else in the US it ships free, programmed and ready to use."}},
+        {"@type": "Question", "name": "Is buying reviews part of this?", "acceptedAnswer": {"@type": "Answer", "text": "No. The placard makes it effortless for your real customers to leave their honest opinion. Google penalises fake reviews and the penalty lands on your profile."}}
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="bg"></div>
@@ -353,6 +428,8 @@ footer a:hover{text-decoration:underline}
         <a class="btn go" href="#order">Order mine — $40 ▸</a>
         <a class="btn ghost" href="#how">See how it works</a>
       </div>
+      <p class="hero-web">Need a website too? Placard customers get one built and put live for
+        <b>$500</b>, one time — <a href="#website">see the sites I've built ▸</a></p>
     </div>
     <div class="shot">
       <div class="pricetag"><b>$40</b><span>Installed</span></div>
@@ -614,6 +691,20 @@ footer a:hover{text-decoration:underline}
         <li>Your services, your photos, your hours, your area</li>
         <li>Your Google reviews shown where people will see them</li>
       </ul>
+      <div class="work" aria-label="Websites already live">
+        <a class="piece" href="https://ovarms.com" target="_blank" rel="noopener">
+          <img src="img/work/ovarms.jpg" width="760" height="475" loading="lazy" alt="Orangevale Arms website">
+          <span>Orangevale Arms<em>Gun store · Orangevale</em></span></a>
+        <a class="piece" href="https://saccitypools.com" target="_blank" rel="noopener">
+          <img src="img/work/saccitypools.jpg" width="760" height="475" loading="lazy" alt="Sac City Pools website">
+          <span>Sac City Pools<em>Pool cleaning · Sacramento</em></span></a>
+        <a class="piece" href="https://jazziee.hair" target="_blank" rel="noopener">
+          <img src="img/work/jazzie.jpg" width="760" height="475" loading="lazy" alt="Hair by Jazzie website">
+          <span>Hair by Jazzie<em>Hair stylist · Fair Oaks</em></span></a>
+        <a class="piece" href="https://calbinder.com" target="_blank" rel="noopener">
+          <img src="img/work/calbinder.jpg" width="760" height="475" loading="lazy" alt="CalBinder website">
+          <span>CalBinder<em>Compliance software</em></span></a>
+      </div>
       <p class="fine">One-time price, no monthly fee. It breaks down as $900 for the website
         and $50 that buys your domain name and holds it for four years — as a placard customer
         the website halves to $450, and the $50 stays put because that part is the registrar's
@@ -727,8 +818,8 @@ footer a:hover{text-decoration:underline}
       </details>
       <details>
         <summary>Where do you install, and how soon?</summary>
-        <p>I cover <b>Sacramento and the Bay Area</b> in person. Send me your address when you
-          order and I'll confirm the visit — usually within a few days. If you're further out
+        <p>I'm based in Orangevale and cover <b>Sacramento and the Bay Area</b> in person. Send
+          me your address when you order and I'll confirm the visit — usually within a few days. If you're further out
           than I can reasonably drive, I'll ship it to you instead, or refund you in full the
           same day. Your call, and either way you're not left waiting on me.</p>
       </details>
