@@ -243,9 +243,17 @@ h2{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-weight:800;
 .offer p{color:#43536d;font-size:1.02rem;max-width:66ch;margin:0 0 8px}
 .offer .fine{color:#8a7a55;font-size:.88rem;margin-top:14px}
 .offer.split{display:grid;grid-template-columns:1fr auto;gap:38px;align-items:center}
+.deals{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+@media screen and (max-width:900px){.deals{grid-template-columns:1fr}}
+.deals .offer{padding:30px 26px}
+.deals h3{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:1.25rem;
+  font-weight:800;letter-spacing:-.01em;line-height:1.25;color:var(--ink);margin:0 0 12px}
 .offer-blue{border-color:#cfe0fb;background:#eef4fe}
 .offer-blue .kicker{color:var(--cyan)}
 .offer-blue .fine{color:#5b6b85}
+.offer-green{border-color:#c9e7d3;background:#eff9f2}
+.offer-green .kicker{color:#166534}
+.offer-green .fine{color:#5b6b85}
 .medal{width:200px;height:200px;border-radius:50%;display:grid;place-items:center;text-align:center;
   flex-shrink:0;border:2px solid #e8c96a;
   background:radial-gradient(circle at 50% 34%,#fff4d6,#ffffff 75%);
@@ -541,7 +549,8 @@ footer a:hover{text-decoration:underline}
         <div class="referral">
           Did somebody send you my way? Checkout has an optional
           <b>&ldquo;How did you hear about us?&rdquo;</b> box — put their name in it.
-          <small>This is how we pay our sales reps &amp; affiliates.</small>
+          <small>This is how we pay our affiliates — if somebody sent you, say so
+            and they get paid.</small>
         </div>
 
         <a class="btn go wide" id="pay-btn" href="#" style="margin-top:14px">Pay securely by card ▸</a>
@@ -610,6 +619,50 @@ footer a:hover{text-decoration:underline}
         the website halves to $450, and the $50 stays put because that part is the registrar's
         charge, not mine. The name is registered in your name and it stays yours.</p>
       <a class="btn gold" href="https://spindolasoftware.com/websites.html" style="margin-top:20px">See the websites I've built ▸</a>
+    </div>
+  </section>
+
+  <!-- ============ BIGGER ORDERS + AFFILIATES ============ -->
+  <section class="sec" id="bigger">
+    <div class="sec-head"><h2>Two ways this gets bigger</h2><div class="rule"></div></div>
+    <div class="deals">
+
+      <div class="offer offer-green">
+        <div class="kicker">More than one location</div>
+        <h3>If you run a chain, the price comes down.</h3>
+        <p>The $40 price is built for one business with one counter. A company with ten
+          locations — or sixty — is a different conversation and a different number.
+          I'm doing exactly that right now for a California chain, rolling it out store by
+          store at a fraction of retail.</p>
+        <p>Tell me how many locations you have and roughly how many registers sit in each
+          one. I'll come back with a per-placard price for the whole company and a single
+          invoice your accounting department can actually process.</p>
+        <p class="fine">There's no minimum to ask, and nothing to sign to get a number.
+          The more registers, the lower the price per placard — programming and shipping
+          stay included either way.</p>
+        <a class="btn gold" style="margin-top:18px"
+           href="mailto:Spindola.Software@gmail.com?subject=Multi-location%20pricing%20—%205%20Star%20Tap&amp;body=Company%3A%0ANumber%20of%20locations%3A%0ARegisters%20per%20location%20(roughly)%3A%0ACity%2Fstate%3A%0A%0AAnything%20else%20I%20should%20know%3A%0A">Ask for a company price ▸</a>
+      </div>
+
+      <div class="offer">
+        <div class="kicker">The affiliate program</div>
+        <h3>Bring me a company. Take half the profit.</h3>
+        <p>Put me in front of a business, and when they buy you get <b>half of what I make
+          on that order</b>. Not a coupon and not store credit — half the profit, paid
+          to you.</p>
+        <p>One thing has to happen for it to work: when they check out, they type your name
+          into the <b>&ldquo;How did you hear about us?&rdquo;</b> box. That box is the
+          entire system. Your name in it means you get paid. Left blank, I have no way of
+          knowing who sent them.</p>
+        <p>It pays the same way on a single $40 placard as it does on a chain rollout, and
+          there's no cap on how many you send.</p>
+        <p class="fine">Paid once their order is paid for and delivered. Tell me before they
+          buy and I'll confirm in writing what your half comes to on that order, so nobody
+          is guessing.</p>
+        <a class="btn gold" style="margin-top:18px"
+           href="mailto:Spindola.Software@gmail.com?subject=Affiliate%20program%20—%205%20Star%20Tap&amp;body=My%20name%20(exactly%20how%20I'll%20tell%20people%20to%20type%20it)%3A%0AWho%20I%20have%20in%20mind%3A%0ABest%20way%20to%20reach%20me%3A%0A">Sign me up ▸</a>
+      </div>
+
     </div>
   </section>
 
@@ -848,7 +901,7 @@ function orderText() {
          'Your Google "Ask for reviews" link:',
          delivery === 'ship' ? 'Shipping address:' : 'Install address:',
          'Best phone:',
-         'How did you hear about us? (this is how I pay my sales reps):',
+         'How did you hear about us? (this is how I pay my affiliates):',
          delivery === 'ship' ? '' : 'Best days/times for the install:', '',
          'Reference: ' + orderCode());
   return t.join('\n');
