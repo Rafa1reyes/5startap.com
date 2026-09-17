@@ -52,6 +52,10 @@ header{display:flex;align-items:center;justify-content:space-between;padding:18p
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
 .brand b{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-size:.78rem;letter-spacing:.2em;font-weight:800}
 .brand .logo{height:56px;width:auto;display:block}
+.topnav{display:flex;align-items:center;gap:16px}
+.topnav .tab{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.02em;color:var(--ink);text-decoration:none;padding:8px 15px;border:1px solid #cfd9e8;border-radius:999px;background:#fff;white-space:nowrap}
+.topnav .tab:hover{border-color:var(--cyan);color:var(--cyan)}
+@media (max-width:560px){.topnav{gap:10px}.topnav .tab{padding:7px 12px;font-size:.78rem}}
 .logo-sign{display:flex;justify-content:center;padding:2vh 0 0}
 .logo-sign img{height:88px;width:auto}
 @media (max-width:560px){.brand .logo{height:44px}.logo-sign img{height:68px}}
@@ -415,7 +419,10 @@ footer a:hover{text-decoration:underline}
     <a class="brand" href="/" aria-label="5 Star Tap — home">
       <img class="logo" src="img/logo.png" width="620" height="253" alt="5 Star Tap">
     </a>
-    <a class="back" href="https://spindolasoftware.com">by Spindola&nbsp;Software ▸</a>
+    <nav class="topnav">
+      <a class="tab" href="/proposals/">Proposals</a>
+      <a class="back" href="https://spindolasoftware.com">by Spindola&nbsp;Software ▸</a>
+    </nav>
   </header>
 
   <!-- ============ HERO ============ -->
@@ -882,7 +889,7 @@ footer a:hover{text-decoration:underline}
 
   <footer>
     <span>© 2026 5 STAR TAP · A <a href="https://spindolasoftware.com">SPINDOLA SOFTWARE</a> SERVICE</span>
-    <span><a href="refunds.html">REFUNDS</a> · <a href="privacy.html">PRIVACY</a> · <a href="terms.html">TERMS</a></span>
+    <span><a href="/proposals/">PROPOSALS</a> · <a href="refunds.html">REFUNDS</a> · <a href="privacy.html">PRIVACY</a> · <a href="terms.html">TERMS</a></span>
     <span><a href="mailto:Spindola.Software@gmail.com">SPINDOLA.SOFTWARE@GMAIL.COM</a></span>
     <span class="legal">Spindola Software is an independent business and is not affiliated with,
       sponsored by, or endorsed by Google LLC. Google, the Google logo and Google Maps are

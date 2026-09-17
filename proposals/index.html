@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Client Proposals — 5 Star Tap</title>
+<meta name="description" content="Enter the access code from your email to open your 5 Star Tap proposal.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://5startap.com/proposals/">
+<meta name="theme-color" content="#f7f9fc">
+<link rel="icon" href="/img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="512x512" href="/img/icon-512.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f9fc;--ink:#16233c;--dim:#5b6b85;--cyan:#1a73e8;--line:#cfd9e8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+.shell{max-width:1080px;margin:0 auto;padding:0 22px;min-height:100vh;display:flex;flex-direction:column}
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:14px}
+.brand .logo{height:56px;width:auto;display:block}
+.topnav{display:flex;align-items:center;gap:16px}
+.topnav .tab{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.02em;color:var(--ink);text-decoration:none;padding:8px 15px;border:1px solid var(--line);border-radius:999px;background:#fff;white-space:nowrap}
+.topnav .tab.on{border-color:var(--cyan);color:var(--cyan)}
+.back{font-size:.8rem;color:var(--dim);text-decoration:none;white-space:nowrap}
+main{flex:1;display:grid;place-items:center;padding:30px 0 60px}
+.card{width:100%;max-width:520px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:34px 34px 30px;box-shadow:0 10px 30px rgba(22,35,60,.06)}
+.eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin:0 0 10px}
+h1{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-weight:800;font-size:1.65rem;letter-spacing:-.02em;margin:0 0 10px;line-height:1.15}
+p{margin:0 0 18px;color:var(--dim);line-height:1.55;font-size:.97rem}
+form{display:flex;gap:10px;flex-wrap:wrap}
+input{flex:1 1 200px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:1.25rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;padding:13px 16px;border:1.5px solid var(--line);border-radius:10px;color:var(--ink);background:#fff;min-width:0}
+input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(26,115,232,.15)}
+button{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-size:.95rem;font-weight:700;padding:13px 22px;border-radius:10px;border:1.5px solid var(--cyan);background:var(--cyan);color:#fff;cursor:pointer;white-space:nowrap}
+button:hover{background:#1765cc;border-color:#1765cc}
+button[disabled]{opacity:.6;cursor:default}
+.msg{min-height:1.4em;margin:12px 0 0;font-size:.9rem;color:#b3261e}
+.msg.ok{color:var(--dim)}
+.fine{margin:22px 0 0;font-size:.82rem;color:var(--dim);border-top:1px solid var(--line);padding-top:16px}
+.fine a{color:var(--cyan);text-decoration:none}
+footer{padding:22px 0 30px;font-size:.72rem;letter-spacing:.06em;color:var(--dim);display:flex;flex-wrap:wrap;gap:8px 22px;border-top:1px solid var(--line)}
+footer a{color:var(--dim);text-decoration:none}
+@media (max-width:560px){.brand .logo{height:44px}.card{padding:26px 20px 22px}h1{font-size:1.4rem}.back{display:none}.topnav .tab{padding:7px 12px;font-size:.78rem}}
+@media (max-width:360px){form{flex-direction:column}input,button{flex-basis:auto;width:100%}input{letter-spacing:.2em;font-size:1.1rem}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <a class="brand" href="/" aria-label="5 Star Tap — home">
+      <img class="logo" src="/img/logo.png" width="620" height="253" alt="5 Star Tap">
+    </a>
+    <nav class="topnav">
+      <a class="tab on" href="/proposals/">Proposals</a>
+      <a class="back" href="/">Back to 5startap.com ▸</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card">
+      <p class="eyebrow">Client proposals</p>
+      <h1>Enter your proposal code</h1>
+      <p>Every proposal we prepare has its own access code. Yours is in the email we sent you.</p>
+      <form id="f" autocomplete="off">
+        <input id="code" name="code" inputmode="text" autocapitalize="characters" spellcheck="false"
+               maxlength="12" placeholder="XXXXX" aria-label="Proposal code" required>
+        <button id="go" type="submit">Open proposal ▸</button>
+      </form>
+      <p class="msg" id="msg" role="status" aria-live="polite"></p>
+      <p class="fine">Proposals are private to the business they were prepared for. Lost your code?
+        Email <a href="mailto:Spindola.Software@gmail.com?subject=Proposal%20code">Spindola.Software@gmail.com</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 5 STAR TAP · A <a href="https://spindolasoftware.com">SPINDOLA SOFTWARE</a> SERVICE</span>
+    <span><a href="/refunds.html">REFUNDS</a> · <a href="/privacy.html">PRIVACY</a> · <a href="/terms.html">TERMS</a></span>
+  </footer>
+</div>
+<script>
+(function(){
+  var SALT = "5startap:proposal:v1:";
+  var f = document.getElementById('f'), inp = document.getElementById('code'),
+      msg = document.getElementById('msg'), go = document.getElementById('go');
+  function norm(v){ return (v||'').toUpperCase().replace(/[\s-]/g,''); }
+  async function sha256(str){
+    var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(function(b){ return b.toString(16).padStart(2,'0'); }).join('');
+  }
+  async function openCode(code){
+    code = norm(code);
+    if (code.length < 4){ msg.className='msg'; msg.textContent='Enter the code from your email.'; return; }
+    go.disabled = true; msg.className='msg ok'; msg.textContent='Checking…';
+    try {
+      var url = '/proposals/p/' + (await sha256(SALT + code)) + '.html';
+      var r = await fetch(url, {method:'GET', cache:'no-store'});
+      if (r.ok){ msg.textContent='Opening your proposal…'; location.href = url; return; }
+      msg.className='msg'; msg.textContent='No proposal matches that code. Check the email we sent — codes are short and not case-sensitive.';
+    } catch(e){
+      msg.className='msg'; msg.textContent='Could not check that code right now. Please try again.';
+    }
+    go.disabled = false;
+  }
+  f.addEventListener('submit', function(e){ e.preventDefault(); openCode(inp.value); });
+  var q = new URLSearchParams(location.search).get('code');
+  if (q){ inp.value = norm(q); openCode(q); }
+  inp.focus();
+})();
+</script>
+</body>
+</html>
