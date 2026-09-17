@@ -382,13 +382,41 @@
       --line:#d5dee9; --rule:#b6c4d8; --blue:#1256bd; --blue-soft:#eef4fd;
       --good:#0c6733; --good-soft:#edf7f1; --amber:#c98a00;
     }
-    body{background:#fff;font-size:10.8pt;line-height:1.5}
+    @page{size:Letter;margin:0.5in 0.65in 0.65in;
+      @bottom-center{content:"5 Star Tap · Proposal for STIIIZY · page " counter(page) " of " counter(pages);
+        font:8.5pt 'Plus Jakarta Sans','Inter',sans-serif;color:#7a889c;letter-spacing:.04em}}
+    body{background:#fff;font-size:12.5pt;line-height:1.5}
     .sheet{max-width:none;border:0;padding:0 0 0.2in}
-    h2,h3,.eyebrow{break-after:avoid}
-    .result,.price,.callout,table,ol.steps li,.shot{break-inside:avoid}
+    .top{padding-block:14pt 12pt}
+    .result{padding:12pt 16pt;margin:12pt 0 4pt}
+    .sitebar{display:none}
+    p{max-width:none}
+    h1{font-size:28pt;margin:14pt 0 6pt}
+    h2{font-size:17pt;margin-top:26pt}
+    h3{font-size:13pt;margin-top:18pt}
+    .standfirst{font-size:14pt;margin-bottom:2pt}
+    .eyebrow{font-size:9.5pt;margin-top:22pt}
+    .mark b{font-size:11pt} .mark .tagline{font-size:10pt} .top .meta{font-size:10.5pt}
+    .result .cap{font-size:11.5pt}
+    table{font-size:11pt} caption{font-size:10pt;padding-top:6pt} thead th{font-size:9pt}
+    th,td{padding:6pt 8pt} .tablewrap{margin:10pt 0 4pt}
+    .price .line{font-size:11.5pt} .price .note{font-size:10pt} .price .line.total{font-size:14pt}
+    .tier .flag{font-size:8.5pt} .tier .per{font-size:10.5pt} .tier .who{font-size:12pt}
+    .tier dl{font-size:11pt} .tier .headline{font-size:11.5pt}
+    .coupon .code{font-size:9.5pt} .coupon p{font-size:11pt}
+    .opt figcaption{font-size:11pt} .opt figcaption b{font-size:12pt} .opt .fine{font-size:9pt}
+    ul.check li,ol.steps li{font-size:11.5pt}
+    .callout p{font-size:12pt} .callout p.src{font-size:9.5pt}
+    .sign{font-size:11pt} .sign b{font-size:12.5pt} .sign .lab{font-size:9pt}
+    .sign{margin-top:20pt;padding-top:14pt} .signgrid{margin-bottom:12pt}
+    .sign .brand{margin-top:14pt} .sign .brand img{max-width:340px}
+    h2,h3,.eyebrow,.keep{break-after:avoid}
+    .result,.price,.callout,.tablewrap,ol.steps li,ul.check li,.tiers,.tier,.options,.opt,
+    .coupon,.signgrid,.sign,.brand,figure,.line{break-inside:avoid}
+    .eyebrow.last{break-before:page}
     .tablewrap{overflow:visible}
     a{color:var(--ink);text-decoration:none}
-    @page{margin:0.65in}
+    img{max-width:100%}
   }
   .sitebar{max-width:780px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 22px;font-family:var(--sans);font-size:12.5px;color:var(--muted)}
   .sitebar a{color:var(--muted);text-decoration:none;font-weight:600}
@@ -433,7 +461,7 @@
     with Sacramento's own Google review link, so a customer who taps at that counter lands on
     that store's listing.</p>
 
-  <p>To separate the placards from normal growth, we tracked two STIIIZY stores that had no
+  <p class="keep">To separate the placards from normal growth, we tracked two STIIIZY stores that had no
     placards over the identical window:</p>
 
   <div class="tablewrap">
@@ -590,7 +618,7 @@
   <p class="eyebrow">Investment</p>
   <h2 class="tight">Two ways to buy</h2>
 
-  <p>STIIIZY gets one of two rates, depending on how the order comes in.</p>
+  <p class="keep">STIIIZY gets one of two rates, depending on how the order comes in.</p>
 
   <div class="tiers">
     <div class="tier pick">
@@ -754,7 +782,7 @@
     way over the first 60 days, we will help you pull the placards from that location at no
     charge. We would rather lose six placards than have this cost a store its rating.</p>
 
-  <p class="eyebrow">One honest note</p>
+  <p class="eyebrow last">One honest note</p>
   <h2 class="tight">Getting the most out of them</h2>
 
   <div class="callout">
