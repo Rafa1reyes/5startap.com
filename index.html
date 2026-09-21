@@ -234,6 +234,10 @@ h2{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-weight:800;
 .alt{text-align:center;margin-top:14px;font-size:.9rem;color:var(--dim)}
 .alt a{color:var(--cyan);text-decoration:none;border-bottom:1px dotted #9fc1f2}
 .alt a:hover{color:#1765cc}
+.deal{margin:14px 0 0;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:.88rem;line-height:1.55;color:var(--ink)}
+.deal b{display:block;margin-bottom:4px;font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
+.deal span{display:block}
+.deal span::before{content:"✓ ";color:var(--ok)}
 .referral{margin:16px 0 2px;padding:12px 14px;border:1px dashed #cfd9e8;border-radius:10px;
   background:#fbfcfe;font-size:.9rem;line-height:1.55;color:var(--ink)}
 .referral b{color:var(--cyan)}
@@ -453,8 +457,8 @@ footer a:hover{text-decoration:underline}
   <div class="trust">
     <div class="tchip"><span class="ic">✓</span><span>Programmed with <em>your</em> review link</span></div>
     <div class="tchip"><span class="ic">✓</span><span>Installed in person, or shipped to your door</span></div>
-    <div class="tchip"><span class="ic">✓</span><span>Works with iPhone &amp; Android</span></div>
     <div class="tchip"><span class="ic">✓</span><span>One-time price. No monthly fee.</span></div>
+    <div class="tchip"><span class="ic">✓</span><span>No password, no login — I never touch your account</span></div>
   </div>
 
   <!-- ============ WHY ============ -->
@@ -468,8 +472,9 @@ footer a:hover{text-decoration:underline}
         </svg>
         <h3>REVIEWS ARE THE FIRST THING PEOPLE SEE</h3>
         <p>When someone searches for your trade in your town, Google shows your star rating
-          before it shows a single word you wrote about yourself. That rating is doing your
-          selling whether you manage it or not.</p>
+          before it shows a single word you wrote about yourself. 97 out of 100 people read
+          those reviews before they pick a local business (BrightLocal, 2026). That rating is
+          doing your selling whether you manage it or not.</p>
       </div>
       <div class="panel">
         <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -479,7 +484,8 @@ footer a:hover{text-decoration:underline}
         <h3>YOUR HAPPY CUSTOMERS AREN'T UPSET — THEY'RE BUSY</h3>
         <p>Almost nobody goes home, remembers your business name, looks it up, and writes a
           review. They absolutely would have done it in the moment, standing right there,
-          if it took five seconds instead of five minutes.</p>
+          if it took five seconds instead of five minutes. Each one walks out as a review
+          you earned and never got.</p>
       </div>
       <div class="panel">
         <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -496,7 +502,8 @@ footer a:hover{text-decoration:underline}
   <!-- ============ HOW ============ -->
   <section class="sec" id="how">
     <div class="sec-head"><h2>How it works</h2><div class="rule"></div></div>
-    <p class="lead" style="margin:0 0 30px">Four steps. You're involved in exactly one of them.</p>
+    <p class="lead" style="margin:0 0 30px">Four steps. You're involved in exactly one of them,
+      and your part takes about two minutes: copy one link.</p>
     <div class="steps">
       <div class="step">
         <h3>YOU ORDER</h3>
@@ -541,6 +548,8 @@ footer a:hover{text-decoration:underline}
           <div class="price">$40 <small>shipped free, or installed by me locally</small></div>
           <div class="price2"><b>$20</b> each additional — a second register, a second
             location, the back office.</div>
+          <p class="note" style="margin:12px 0 0">Why $40, installed? I buy the placards wholesale,
+            program them at my own desk, and the install is me driving over — not a service call.</p>
         </div>
       </article>
       <article class="panel prod">
@@ -633,6 +642,14 @@ footer a:hover{text-decoration:underline}
           <label for="email">Your email (optional — speeds up checkout)</label>
           <input id="email" type="email" autocomplete="email" placeholder="you@yourbusiness.com"
                  spellcheck="false">
+        </div>
+
+        <div class="deal">
+          <b>My end of the deal</b>
+          <span>Doesn't tap? I replace it free.</span>
+          <span>Link changes? I re-write it free, forever.</span>
+          <span>Can't reach your address for an install? Full refund the same day.</span>
+          <span>No account to create, nothing to renew. The placard is yours.</span>
         </div>
 
         <div class="referral">
@@ -780,6 +797,13 @@ footer a:hover{text-decoration:underline}
           which it is by default on most phones. Nothing to sign into either way.</p>
       </details>
       <details>
+        <summary>Are you Google? Does this change my listing?</summary>
+        <p>No and no. Spindola Software is one independent business in Orangevale. I'm not
+          affiliated with Google and I don't work for them. Nothing about your listing changes
+          whether you buy this or not, and I never log in to anything of yours. If someone calls
+          you claiming to be Google and threatening your listing, it isn't Google.</p>
+      </details>
+      <details>
         <summary>What if someone has an older phone?</summary>
         <p>A small number of older phones won't tap, and they'll just carry on with their day —
           the sign costs you nothing on the times it isn't used. Everyone else taps. I'd rather
@@ -875,12 +899,14 @@ footer a:hover{text-decoration:underline}
   <!-- ============ FINAL ============ -->
   <section class="final" id="talk">
     <h2>Let's get your counter working for you.</h2>
-    <p>Forty dollars, a few minutes of your time, and every happy customer who walks
+    <p>Forty dollars, two minutes of your time to copy a link, and every happy customer who walks
       out gets a five-second way to say so.</p>
     <div class="hero-cta" style="justify-content:center">
       <a class="btn go" href="#order">Order mine — $40 ▸</a>
       <a class="btn ghost" href="mailto:Spindola.Software@gmail.com?subject=Google%20review%20placard%20—%20question">Email me a question</a>
     </div>
+    <p class="note" style="text-align:center;margin-top:16px">Not sure yet? Email me your business name
+      and whatever you're wondering. I answer them myself, and "no thanks" is a fine answer.</p>
   </section>
 
   <div class="logo-sign">
