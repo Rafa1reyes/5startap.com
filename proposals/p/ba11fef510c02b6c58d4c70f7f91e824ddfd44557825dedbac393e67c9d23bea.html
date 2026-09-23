@@ -476,6 +476,35 @@
     a{color:var(--ink);text-decoration:none}
     img{max-width:100%}
   }
+  .sitebar{display:none}
+    p{max-width:none}
+    h1{font-size:28pt;margin:14pt 0 6pt}
+    h2{font-size:17pt;margin-top:26pt}
+    h3{font-size:13pt;margin-top:18pt}
+    .standfirst{font-size:14pt;margin-bottom:2pt}
+    .eyebrow{font-size:9.5pt;margin-top:22pt}
+    .mark b{font-size:11pt} .mark .tagline{font-size:10pt} .top .meta{font-size:10.5pt}
+    .result .cap{font-size:11.5pt}
+    table{font-size:11pt} caption{font-size:10pt;padding-top:6pt} thead th{font-size:9pt}
+    th,td{padding:6pt 8pt} .tablewrap{margin:10pt 0 4pt}
+    .price .line{font-size:11.5pt} .price .note{font-size:10pt} .price .line.total{font-size:14pt}
+    .tier .flag{font-size:8.5pt} .tier .per{font-size:10.5pt} .tier .who{font-size:12pt}
+    .tier dl{font-size:11pt} .tier .headline{font-size:11.5pt}
+    .coupon .code{font-size:9.5pt} .coupon p{font-size:11pt}
+    .opt figcaption{font-size:11pt} .opt figcaption b{font-size:12pt} .opt .fine{font-size:9pt}
+    ul.check li,ol.steps li{font-size:11.5pt}
+    .callout p{font-size:12pt} .callout p.src{font-size:9.5pt}
+    .sign{font-size:11pt} .sign b{font-size:12.5pt} .sign .lab{font-size:9pt}
+    .sign{margin-top:20pt;padding-top:14pt} .signgrid{margin-bottom:12pt}
+    .sign .brand{margin-top:14pt} .sign .brand img{max-width:340px}
+    h2,h3,.eyebrow,.keep{break-after:avoid}
+    .result,.price,.callout,.tablewrap,ol.steps li,ul.check li,.tiers,.tier,.options,.opt,
+    .coupon,.signgrid,.sign,.brand,figure,.line{break-inside:avoid}
+    .eyebrow.last{break-before:page}
+    .tablewrap{overflow:visible}
+    a{color:var(--ink);text-decoration:none}
+    img{max-width:100%}
+  }
   .sitebar{max-width:780px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 22px;font-family:var(--sans);font-size:12.5px;color:var(--muted)}
   .sitebar a{color:var(--muted);text-decoration:none;font-weight:600}
   .sitebar a:hover{color:var(--blue)}
@@ -593,6 +622,11 @@
   .price .line.optt.first{border-top:1.5px solid var(--rule);margin-top:10px;padding-top:12px}
   .optnote{font-family:var(--sans);font-size:13px;color:var(--muted);margin:8px 0 0}
   @media screen and (max-width:620px){ .optprices{grid-template-columns:1fr} }
+  /* v51: competitor section starts its own page so the Taps Reviews argument
+     reads whole; pricing-page spacing tightened so the included list fits there. */
+  @media print{ .optprices{margin:8pt 0 4pt;gap:9pt} .pcard{padding:7pt 11pt} .pcard b.pc-name{margin-bottom:4pt} }
+  @media print{ .compsec{break-before:page} }
+  @media print{ .optprices + .callout{margin:6pt 0} .optprices + .callout p + p{margin-top:6pt} h2.tight{margin-top:2pt} }
 </style>
 </head>
 <body>
@@ -753,8 +787,8 @@
   </div>
 
   <div class="callout">
-    <p>Every placard carries its own store&rsquo;s Google review link, so a tap in Vista never lands
-      on Oxnard&rsquo;s listing. Included at no extra charge:</p>
+    <p>Every placard carries its own store&rsquo;s Google review link. Included at no extra
+      charge:</p>
     <ul>
       <li><b>22 spare placards (5%).</b> A store with more registers than expected draws the
         difference from the spares at no extra cost.</li>
@@ -768,7 +802,7 @@
     </ul>
   </div>
 
-  <p class="eyebrow">Competitive pricing analysis</p>
+  <p class="eyebrow compsec">Competitive pricing analysis</p>
   <h2 class="tight">What everyone else charges for this</h2>
 
   <p class="keep">Published US pricing for a countertop NFC Google-review unit, read on each
@@ -776,9 +810,8 @@
 
   <div class="tablewrap">
     <table>
-      <caption>ZappyCards and Taps Reviews read 22 September 2026; TAPro as published 16 September
-        2026. Hardware figures are each vendor&rsquo;s standard retail volume tier, which in this
-        category is ten units.</caption>
+      <caption>ZappyCards and Taps Reviews read 22 September 2026, TAPro 16 September 2026.
+        Each vendor&rsquo;s standard retail ten-unit tier.</caption>
       <thead>
         <tr>
           <th scope="col">Vendor</th>
@@ -789,8 +822,7 @@
       <tbody>
         <tr><td>ZappyCards Zappystand</td><td>$20&ndash;$40</td><td>none</td></tr>
         <tr><td>TAPro, 10-pack</td><td>$19.90</td><td>none</td></tr>
-        <tr><td>Taps Reviews, 10-pack</td><td>$15.00<br><em>generic tap + QR, set up by you;
-            no custom artwork</em></td><td>none</td></tr>
+        <tr><td>Taps Reviews, 10-pack</td><td>$15.00<br><em>tap + QR, set up by you, no custom art</em></td><td>none</td></tr>
         <tr class="lead"><td>5 Star Tap, company-wide</td>
             <td>$11.00 generic; $17.00 custom + QR</td>
             <td>none, now or ever</td></tr>
@@ -798,15 +830,30 @@
     </table>
   </div>
 
-  <p>The closest on price is Taps Reviews at $15.00 a stand ($149.99 for ten). Like for like, it
-    is our generic + QR placard: tap and QR under their own printed design, with no custom artwork
-    offered. The stands also ship unlinked &mdash; after delivery the buyer selects the business for
-    them on Taps Reviews&rsquo; platform, which for STIIIZY means matching 438 stands to the right
-    store across 73 locations. For the same 438 registers that comes to <strong>$6,570</strong>
-    against <strong>$5,712</strong> for ours, with every one of ours programmed and verified for
-    its store before it ships. (Taps Reviews also sells an optional &ldquo;Review Filtration
-    Plus+&rdquo; add-on to &ldquo;help stop bad reviews&rdquo;; ours send every customer to the same
-    review page.)</p>
+  <h3>Why the closest price is not the cheaper option</h3>
+
+  <p>The nearest competitor on price is Taps Reviews at $15.00 a stand ($149.99 for ten). Like for
+    like, that is our generic + QR placard at $14: tap and QR under their own printed design, with
+    no custom artwork offered. The bigger difference is what arrives in the box.</p>
+
+  <p>Their stands ship unlinked. After delivery, the buyer goes onto Taps Reviews&rsquo; platform
+    and selects the business for each stand. For STIIIZY that means matching 438 stands, one at a
+    time, to the right store among 73 Google listings that all carry the STIIIZY name. At an
+    estimated one minute per stand, that is <strong>438 minutes &mdash; about 7.3 hours of
+    STIIIZY staff time</strong>, on top of the purchase price. It is also the step where a Vista
+    stand ends up sending customers to Oxnard&rsquo;s listing.</p>
+
+  <div class="callout">
+    <p><b>Taps Reviews:</b> $6,570 for 438 stands, plus roughly 7.3 hours of your team&rsquo;s time
+      to link each one to its store.</p>
+    <p><b>5 Star Tap:</b> $5,712 for 438 generic + QR placards, each already programmed with its
+      own store&rsquo;s link, tap-tested, labeled and boxed by store before it ships. Setup time
+      for your team: none.</p>
+  </div>
+
+  <p>Like for like, Taps Reviews costs more per placard before any labor is counted. (It also sells
+    an optional &ldquo;Review Filtration Plus+&rdquo; add-on to &ldquo;help stop bad reviews&rdquo;;
+    ours send every customer to the same review page.)</p>
 
   <div class="coupon">
     <div class="amt">$420</div>
