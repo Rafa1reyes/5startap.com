@@ -418,6 +418,35 @@
     a{color:var(--ink);text-decoration:none}
     img{max-width:100%}
   }
+  .sitebar{display:none}
+    p{max-width:none}
+    h1{font-size:28pt;margin:14pt 0 6pt}
+    h2{font-size:17pt;margin-top:26pt}
+    h3{font-size:13pt;margin-top:18pt}
+    .standfirst{font-size:14pt;margin-bottom:2pt}
+    .eyebrow{font-size:9.5pt;margin-top:22pt}
+    .mark b{font-size:11pt} .mark .tagline{font-size:10pt} .top .meta{font-size:10.5pt}
+    .result .cap{font-size:11.5pt}
+    table{font-size:11pt} caption{font-size:10pt;padding-top:6pt} thead th{font-size:9pt}
+    th,td{padding:6pt 8pt} .tablewrap{margin:10pt 0 4pt}
+    .price .line{font-size:11.5pt} .price .note{font-size:10pt} .price .line.total{font-size:14pt}
+    .tier .flag{font-size:8.5pt} .tier .per{font-size:10.5pt} .tier .who{font-size:12pt}
+    .tier dl{font-size:11pt} .tier .headline{font-size:11.5pt}
+    .coupon .code{font-size:9.5pt} .coupon p{font-size:11pt}
+    .opt figcaption{font-size:11pt} .opt figcaption b{font-size:12pt} .opt .fine{font-size:9pt}
+    ul.check li,ol.steps li{font-size:11.5pt}
+    .callout p{font-size:12pt} .callout p.src{font-size:9.5pt}
+    .sign{font-size:11pt} .sign b{font-size:12.5pt} .sign .lab{font-size:9pt}
+    .sign{margin-top:20pt;padding-top:14pt} .signgrid{margin-bottom:12pt}
+    .sign .brand{margin-top:14pt} .sign .brand img{max-width:340px}
+    h2,h3,.eyebrow,.keep{break-after:avoid}
+    .result,.price,.callout,.tablewrap,ol.steps li,ul.check li,.tiers,.tier,.options,.opt,
+    .coupon,.signgrid,.sign,.brand,figure,.line{break-inside:avoid}
+    .eyebrow.last{break-before:page}
+    .tablewrap{overflow:visible}
+    a{color:var(--ink);text-decoration:none}
+    img{max-width:100%}
+  }
   .sitebar{max-width:780px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 22px;font-family:var(--sans);font-size:12.5px;color:var(--muted)}
   .sitebar a{color:var(--muted);text-decoration:none;font-weight:600}
   .sitebar a:hover{color:var(--blue)}
@@ -714,12 +743,13 @@
   <h2 class="tight">What everyone else charges for this</h2>
 
   <p class="keep">Published US pricing for a countertop NFC Google-review unit, read on each
-    vendor&rsquo;s own site on September 16, 2026:</p>
+    vendor&rsquo;s own site:</p>
 
   <div class="tablewrap">
     <table>
-      <caption>Vendor pricing as published 16 September 2026. Hardware figures are each
-        vendor&rsquo;s best publicly listed volume tier, which in this category is ten units.</caption>
+      <caption>ZappyCards read 22 September 2026; the others as published 16 September 2026.
+        Hardware figures are each vendor&rsquo;s best publicly listed volume tier, which in this
+        category is ten units.</caption>
       <thead>
         <tr>
           <th scope="col">Vendor</th>
@@ -728,21 +758,26 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>ZappyCards Zappystand</td><td>$30; $15 at 10 units</td>
-            <td>$29.99/month <em>per business location</em></td></tr>
+        <tr><td>ZappyCards Zappystand</td><td>$40; $20 at 10 units<br><em>generic tap + QR,
+            self-programmed</em><br><em>$45 with custom artwork</em></td>
+            <td>optional: $49.99/month software</td></tr>
         <tr><td>TAPro, 10-pack</td><td>$19.90</td><td>none</td></tr>
         <tr><td>Taps Reviews, 10-pack</td><td>$14.99</td><td>none</td></tr>
         <tr class="lead"><td>5 Star Tap, company-wide</td>
-            <td>$17.00 custom + QR; $11.00 generic</td>
+            <td>$11.00 generic; $17.00 custom + QR</td>
             <td>none, now or ever</td></tr>
       </tbody>
     </table>
   </div>
 
-  <p>The column that matters at 73 locations is the third. ZappyCards bills its software per
-    location rather than per device &mdash; across 73 STIIIZY stores that is
-    <strong>$2,189 a month, $26,271 a year, every year</strong>, on top of roughly $6,570 in
-    hardware at their best published rate. <strong>Over three years: $85,384.</strong></p>
+  <p>Like for like: ZappyCards&rsquo; $20 tier is their own generic stand &mdash; tap and QR under
+    ZappyCards&rsquo; printed design, which each location links to its listing itself through
+    their app. STIIIZY artwork is a separate $45 stand with no volume price published. The stand
+    works without a subscription; their $49.99/month Pro plan ($360 billed yearly) adds review
+    texts, AI replies and staff tracking. For the same 438 registers, their generic tap + QR stands
+    come to <strong>$8,760</strong> against <strong>$5,712</strong> for ours, and custom artwork
+    to <strong>$19,710</strong> against <strong>$7,026</strong> &mdash; with every one of ours
+    programmed and verified for its store before it ships.</p>
 
   <div class="coupon">
     <div class="amt">$420</div>
@@ -812,8 +847,8 @@
       without your written consent.</div>
   </div>
 
-  <p><strong>$4,398, once</strong> &mdash; less than three months of the ZappyCards
-    subscription alone ($7,026 for custom + QR, still under four), and there is no year two.</p>
+  <p><strong>$4,398, once</strong> &mdash; every register in the company, programmed to its own
+    store, and nothing recurring after it.</p>
 
   <div class="lockblock">
   <h3>Going company-wide locks your rate in for good</h3>
