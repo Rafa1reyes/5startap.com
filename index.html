@@ -292,7 +292,9 @@ h2{font-family:'Plus Jakarta Sans','Inter',sans-serif;font-weight:800;
 .hero-web b{color:var(--amber)}
 .hero-web a{color:var(--cyan);font-weight:700;text-decoration:none;border-bottom:1px dotted #9fc1f2}
 .hero-web a:hover{color:#1765cc}
-.work{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:12px;margin:22px 0 6px}
+/* 180px minimum = five across at the strip's capped 1015px width (5x180 + 4x12
+   gaps = 948). At 200 only four fit and a fifth tile sat alone on its own row. */
+.work{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:12px;margin:22px 0 6px}
 .piece{display:block;text-decoration:none;color:var(--ink);background:#fff;border:1px solid #cfe0fb;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:.2s}
 .piece:hover{transform:translateY(-2px);border-color:#9fc1f2}
 .piece img{display:block;width:100%;height:auto;border-bottom:1px solid #e3e9f2}
@@ -730,6 +732,9 @@ footer a:hover{text-decoration:underline}
         <a class="piece" href="https://jazziee.hair" target="_blank" rel="noopener">
           <img src="img/work/jazzie.jpg" width="760" height="475" loading="lazy" alt="Hair by Jazzie website">
           <span>Hair by Jazzie<em>Hair stylist · Fair Oaks</em></span></a>
+        <a class="piece" href="https://psscalendar.com" target="_blank" rel="noopener">
+          <img src="img/work/psscalendar.jpg" width="760" height="475" loading="lazy" alt="PSS Calendar sign-in screen">
+          <span>PSS Calendar<em>Private security · Scheduling</em></span></a>
         <a class="piece" href="https://calbinder.com" target="_blank" rel="noopener">
           <img src="img/work/calbinder.jpg" width="760" height="475" loading="lazy" alt="CalBinder website">
           <span>CalBinder<em>Compliance software</em></span></a>
